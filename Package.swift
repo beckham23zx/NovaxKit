@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "NovaxKit",
-    platforms: [.iOS(.v16)],
+    platforms: [.iOS(.v17)],
     products: [
         .library(name: "NovaxMobileBridge", targets: ["NovaxMobileBridge"]),
         .library(name: "NovaxUI", targets: ["NovaxUI"]),
