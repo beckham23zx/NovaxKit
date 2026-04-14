@@ -7,6 +7,12 @@
 
 ## 2026-04-14 — 跨项目共享架构建立
 
+### 核心原则
+
+- **Shard 代码不动**。共享库是从 Shard 的优秀实现中复制提取出来的。
+- TapLog 作为新项目，从一开始就引用共享库。
+- Shard 未来可选择性、渐进地引用共享库，但不强制。
+
 ### 新建共享仓库
 
 - **NovaxKit** (`github.com/beckham23zx/NovaxKit`) — Swift Package，四个模块：
@@ -19,13 +25,12 @@
   - `bridge` — `OkJSON()`, `ErrJSON()`, `ParseJSON()`, `AuthedGet()`, `AuthedPost()`, `KVStore`
   - `crypto` — `GenerateID()`, `RandomBytes()`
 
-### Shard (vault-core) 变更
+### Shard 状态
 
-- Go: `mobile/vault.go` 引入 `novax-common/bridge`，`okJSON`/`errJSON` 委托给共享实现
-- Swift: `VaultManager.swift` 使用 `NovaxMobileBridge.parseJSON`，`novaxLog` 替代本地日志
-- Swift: `Security.swift` 使用 `NovaxSecurity.KeychainHelper` 重构 `DeviceKeychain`/`AccountKeychain`
-- Swift: `MainTabView.swift` 使用 `NovaxUI.FloatingTabBar` 替代本地浮动 TabBar
-- Swift: 安全模块（越狱检测、反调试、截屏保护、安全剪贴板）全部由 NovaxSecurity 提供
+- **零改动**。所有代码保持原样。
+- NovaxKit 的安全模块是从 Shard 的 `Security.swift` 复制提取的。
+- NovaxUI 的 FloatingTabBar 是从 Shard 的 `MainTabView.swift` 复制提取的。
+- novax-common 的 okJSON/errJSON 是从 Shard 的 `vault.go` 复制提取的。
 
 ### TapLog 变更
 
@@ -49,6 +54,6 @@
 ### [项目名] 变更
 - 具体改动...
 
-### 可复用组件
-- 组件名称 + 使用方法
+### 新增共享组件
+- 组件名：一句话说明
 ```
