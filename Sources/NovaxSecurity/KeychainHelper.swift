@@ -5,6 +5,7 @@ import Security
 /// Both Shard and TapLog can use this for any secure storage needs.
 public enum KeychainHelper {
 
+    @discardableResult
     public static func save(service: String, account: String, data: Data, accessible: CFString = kSecAttrAccessibleWhenUnlockedThisDeviceOnly) -> Bool {
         let deleteQuery: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,

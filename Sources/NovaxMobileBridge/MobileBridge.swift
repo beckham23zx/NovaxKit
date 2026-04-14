@@ -38,6 +38,13 @@ public struct MobileResult<T: Decodable> {
 /// Debug-only logging helper that wraps NSLog with a tag prefix.
 public func novaxLog(_ tag: String, _ msg: String, _ args: CVarArg...) {
     #if DEBUG
+    novaxLogv(tag, msg, args)
+    #endif
+}
+
+/// Array-based variant for forwarding from other variadic wrappers.
+public func novaxLogv(_ tag: String, _ msg: String, _ args: [CVarArg]) {
+    #if DEBUG
     withVaList(args) { NSLogv("[\(tag)] " + msg, $0) }
     #endif
 }
