@@ -46,6 +46,21 @@
 
 ---
 
+## 2026-04-15 — NovaxUI 新增 GlassCard 和 WrappingHStack
+
+### 新增共享组件
+
+- **NovaxGlassCard** — 毛玻璃卡片容器（thinMaterial + 渐变描边 + 阴影），从 TapLog 的 GlassCard 提取
+- **novaxGlassBackground()** — View 扩展，直接给任意 View 加毛玻璃背景
+- **NovaxWrappingHStack** — 自动换行 HStack Layout，从 TapLog 的 WrappingHStack 提取
+
+### 来源
+
+- 从 TapLog `Components/GlassCard.swift` 和 `Views/TodayView.swift` 中提取
+- Shard 零改动
+
+---
+
 ## 模板：如何添加新条目
 
 ```
